@@ -18,10 +18,9 @@ export const addMusic = createAsyncThunk('music/addMusic', async (musicData) => 
     body: JSON.stringify(musicData),
   });
   const data = await response.json();
-  return data; // Assuming the backend returns the added music entry
+  return data; 
 });
 
-// Async thunk for editing an existing music entry
 export const editMusic = createAsyncThunk('music/editMusic', async ({ id, ...musicData }) => {
   const response = await fetch(`http://localhost:3131/v1/music/update/${id}`, {
     method: 'PUT',
@@ -31,7 +30,7 @@ export const editMusic = createAsyncThunk('music/editMusic', async ({ id, ...mus
     body: JSON.stringify(musicData),
   });
   const data = await response.json();
-  return data; // Assuming the backend returns the updated music entry
+  return data;
 });
 
 export const musicSlice = createSlice({
@@ -56,13 +55,13 @@ export const musicSlice = createSlice({
       })
       // Handle addMusic
       .addCase(addMusic.fulfilled, (state, action) => {
-        state.items.push(action.payload); // Assuming the payload is the new music entry
+        state.items.push(action.payload); 
       })
       // Handle editMusic
       .addCase(editMusic.fulfilled, (state, action) => {
         const index = state.items.findIndex(item => item.id === action.payload.id);
         if (index !== -1) {
-          state.items[index] = action.payload; // Replace the old entry with the updated one
+          state.items[index] = action.payload; 
         }
       });
   },

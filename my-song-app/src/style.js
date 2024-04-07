@@ -4,9 +4,6 @@ import { css } from '@emotion/react';
 import { cloudDownloadOutline } from 'ionicons/icons';
 import { IonIcon } from '@ionic/react';
 
-
-
-// Assuming space, layout, and color are functions from styled-system if you want to use them
 import { space, color } from 'styled-system';
 
 export const ButtonText = styled.span`
@@ -27,7 +24,7 @@ export const ButtonIcon = styled.span`
   background: rgba(0, 0, 0, 0.08);
 `;
 
-// Container stays largely the same, just make sure it centers its children
+// Container stays largely the same,
 export const Container = styled.div`
   ${space}
   display: flex;
@@ -56,9 +53,7 @@ export const Button = styled.button`
     opacity: 0.8;
   }
 `;
-// Button component utilizing styled-system for spacing and color
 
-// Table and related components styled according to the provided styles
 export const Table = styled.table`
   border-collapse: collapse;
   width: 70%; 
