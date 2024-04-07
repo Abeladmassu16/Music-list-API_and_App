@@ -2,14 +2,14 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchMusic = createAsyncThunk('music/fetchMusic', async () => {
-  const response = await fetch("http://localhost:3131/v1/music/");
+  const response = await fetch("https://vercel.com/abeladmassu16s-projects/v1/music/");
   const music = await response.json();
   return music;
 });
 
 // Async thunk for adding a new music entry
 export const addMusic = createAsyncThunk('music/addMusic', async (musicData) => {
-  const response = await fetch("http://localhost:3131/v1/music/create", {
+  const response = await fetch("https://vercel.com/abeladmassu16s-projects/v1/music/create", {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -21,7 +21,7 @@ export const addMusic = createAsyncThunk('music/addMusic', async (musicData) => 
 });
 
 export const editMusic = createAsyncThunk('music/editMusic', async ({ id, ...musicData }) => {
-  const response = await fetch(`http://localhost:3131/v1/music/update/${id}`, {
+  const response = await fetch(`https://vercel.com/abeladmassu16s-projects/v1/music/update/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
